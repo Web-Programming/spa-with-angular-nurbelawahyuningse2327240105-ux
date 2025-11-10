@@ -1,5 +1,5 @@
 // src/app/app.routes.ts
-import { Routes } from '@angular/router';
+import {Routes} from '@angular/router';
 import { CvComponent } from './cv/cv.component';
 import { ContactComponent } from './contact/contact.component';
 
