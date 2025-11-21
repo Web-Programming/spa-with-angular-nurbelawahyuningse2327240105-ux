@@ -102,13 +102,29 @@
         </div>
       </div>
     </div>
+<!-- Error/Info Message -->
+<div class="alert alert-info alert-dismissible fade show" role="alert" *ngIf="errorMessage">
+  <i class="bi bi-info-circle me-2"></i>{{ errorMessage }}
+  <button type="button" class="btn-close" (click)="errorMessage = ''" aria-label="Close"></button>
+</div>
 
-    <!-- Housing Cards Grid -->
-    <div class="row g-4 mb-4">
-      <div class="col-md-6 col-lg-4" *ngFor="let house of filteredList">
-        <app-lokasi-perumahan [housing]="house"></app-lokasi-perumahan>
-      </div>
+<!-- Loading Spinner -->
+<div class="row" *ngIf="isLoading">
+  <div class="col-12 text-center py-5">
+    <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;">
+      <span class="visually-hidden">Loading...</span>
     </div>
+    <p class="text-muted mt-3">Memuat data properti...</p>
+  </div>
+</div>
+
+
+<!-- Housing Cards Grid -->
+<div class="row g-4 mb-4" *ngIf="!isLoading">
+  <div class="col-md-6 col-lg-4" *ngFor="let house of filteredList">
+    <app-lokasi-perumahan [housing]="house"></app-lokasi-perumahan>
+  </div>
+</div>
 
     <!-- No Results Message -->
     <div class="row" *ngIf="filteredList.length === 0">
