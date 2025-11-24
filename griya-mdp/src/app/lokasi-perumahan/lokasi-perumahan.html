@@ -1,9 +1,13 @@
 <div class="card h-100 shadow-sm border-0 overflow-hidden">
   <!-- Property Image -->
   <div class="position-relative">
-    <img [src]="housing.image" class="card-img-top" [alt]="housing.title" style="height: 250px; object-fit: cover;">
+    <img [src]="housing.image" 
+         class="card-img-top" 
+         [alt]="housing.title"
+         style="height: 250px; object-fit: cover;">
     <!-- Badge -->
-    <span class="position-absolute top-0 start-0 m-3 badge" [ngClass]="{
+    <span class="position-absolute top-0 start-0 m-3 badge"
+          [ngClass]="{
             'bg-success': housing.status === 'Available',
             'bg-warning': housing.status === 'Pending',
             'bg-secondary': housing.status === 'Sold'
@@ -45,13 +49,12 @@
 
     <!-- Description -->
     <p class="card-text text-muted small mb-3">
-      {{ housing.description || 'Hunian modern dengan desain minimalis, dilengkapi fasilitas lengkap dan akses mudah ke
-      berbagai tempat strategis.' }}
+      {{ housing.description || 'Hunian modern dengan desain minimalis, dilengkapi fasilitas lengkap dan akses mudah ke berbagai tempat strategis.' }}
     </p>
 
     <!-- Action Buttons -->
     <div class="d-grid gap-2">
-      <a href="#" class="btn btn-primary">
+      <a [routerLink]="['/property', housing.id]" class="btn btn-primary">
         <i class="bi bi-eye me-2"></i>Lihat Detail
       </a>
       <a href="#" class="btn btn-outline-primary">
